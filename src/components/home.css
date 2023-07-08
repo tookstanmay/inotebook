@@ -1,0 +1,86 @@
+form{
+    position: relative;
+    width: 350px;
+    margin: 60px auto 20px auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+form input, form textarea{
+    font-family: 'Poppins';
+    outline: none;
+    resize: none;
+    border: none;
+    width: 100%;
+    padding: 4px;
+    margin: 5px 0;
+    font-size: 1.2rem;
+}
+#add {
+    position: absolute;
+    right: 18px;
+    bottom: -18px;
+    background: var(--two);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    width: 42px;
+    height: 42px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    outline: none;
+    scale: 1.1;
+}
+#add:active{
+    background-color: var(--seven);
+    scale: 1;
+}
+
+.noteContainer{
+    width: 300px;
+    margin: 10px auto 10px auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+    text-align: left;
+}
+
+.crud-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 12px 0px 12px;
+}
+.crud-icons{
+    background-color: var(--two);
+    padding: 5px;
+    border-radius: 6px;
+    scale: 1.1;
+}
+.crud-icons:active{
+    scale: 1;
+    background-color: var(--seven);
+}
+
+.displayNote{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 425px 425px 425px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 1230px) {
+    .displayNote{
+        grid-template-columns: 425px 425px;
+    }
+}
+@media screen and (max-width: 834px) {
+    .displayNote{
+        grid-template-columns: auto;
+    }
+}

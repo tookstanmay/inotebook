@@ -1,0 +1,50 @@
+// jshint esversion: 6
+
+import React, { useContext } from "react";
+import noteContext from "../context/notes/noteContext";
+
+import "./home.css";
+
+const NoteItem = (props) => {
+  const context = useContext(noteContext);
+  const { deleteNote, editNote } = context;
+  const { note } = props;
+  return (
+    <div className="noteContainer">
+      <h4 style={{ margin: "6px 0px" }}>{note.title}</h4>
+      <div style={{ margin: "6px 0px", fontSize: "14px" }}>
+        {note.description}
+      </div>
+      <div
+        style={{
+          color: "rgb(116, 116, 116)",
+          margin: "6px 0px",
+          fontSize: "14px",
+        }}
+      >
+        #{note.tag}
+      </div>
+      <div className="crud-container">
+        <img
+          width="24"
+          height="24"
+          src="https://img.icons8.com/material-outlined/48/FFFFFF/trash--v1.png"
+          alt="trash--v1"
+          className="crud-icons"
+          onClick={() => {
+            deleteNote(note._id);
+          }}
+        />
+        <img
+          width="24"
+          height="24"
+          src="https://img.icons8.com/fluency-systems-filled/48/FFFFFF/create-new.png"
+          alt="create-new"
+          className="crud-icons"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default NoteItem;

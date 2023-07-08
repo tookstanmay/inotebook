@@ -1,0 +1,24 @@
+{
+  "name": "inotebook-backend",
+  "version": "1.0.0",
+  "description": "iNotebook is a cloud-based notes application that provides users with a convenient way to create, store, and organize their digital notes. It is designed to offer a seamless and accessible note-taking experience across multiple devices.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tookstanmay",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.0",
+    "lodash": "^4.17.21",
+    "mongoose": "^7.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
