@@ -12,6 +12,8 @@
   --seven: #bf4e4e;
   --eight: rgb(230, 156, 18);
   --nine: #b24242;
+  --ten: #0aa2c0;
+  --eleven: #0b91ac;
 }
 body {
   background-color: var(--four);

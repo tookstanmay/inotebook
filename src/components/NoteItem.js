@@ -7,13 +7,19 @@ import "./home.css";
 
 const NoteItem = (props) => {
   const context = useContext(noteContext);
-  const { deleteNote, editNote } = context;
-  const { note } = props;
+  const { deleteNote } = context;
+  const { note, updateNote } = props;
   return (
     <div className="noteContainer">
       <h4 style={{ margin: "6px 0px" }}>{note.title}</h4>
       <div style={{ margin: "6px 0px", fontSize: "14px" }}>
-        {note.description}
+        {
+          <div>
+            {note.description.split("\n").map((e) => (
+              <div>{e}</div>
+            ))}
+          </div>
+        }
       </div>
       <div
         style={{
@@ -41,6 +47,9 @@ const NoteItem = (props) => {
           src="https://img.icons8.com/fluency-systems-filled/48/FFFFFF/create-new.png"
           alt="create-new"
           className="crud-icons"
+          onClick={() => {
+            updateNote(note);
+          }}
         />
       </div>
     </div>

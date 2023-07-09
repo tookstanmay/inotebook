@@ -28,26 +28,35 @@ const AddNote = () => {
   };
   return (
     <div>
-      <form action="">
+      <form action="" className="addNoteForm">
         <input
+          className="addNoteInput"
           type="text"
           name="title"
           id="title"
           placeholder="Title..."
           onChange={onChange}
+          spellCheck="false"
+          autoComplete="off"
         />
         <textarea
+          className="addNoteTextarea"
           name="description"
           id="description"
           placeholder="Take a note..."
           onChange={onChange}
+          spellCheck="false"
+          autoComplete="off"
         ></textarea>
         <input
+          className="addNoteInput"
           type="text"
           name="tag"
           id="tag"
           placeholder="#tags here..."
           onChange={onChange}
+          spellCheck="false"
+          autoComplete="off"
         />
         <button id="add" onClick={handleClick}>
           +

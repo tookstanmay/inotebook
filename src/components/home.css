@@ -1,4 +1,4 @@
-form{
+.addNoteForm{
     position: relative;
     width: 350px;
     margin: 60px auto 20px auto;
@@ -7,7 +7,7 @@ form{
     border-radius: 10px;
     box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
-form input, form textarea{
+.addNoteInput, .addNoteTextarea{
     font-family: 'Poppins';
     outline: none;
     resize: none;
@@ -52,6 +52,8 @@ form input, form textarea{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 1;
     margin: 10px 12px 0px 12px;
 }
 .crud-icons{
