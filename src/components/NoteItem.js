@@ -1,22 +1,26 @@
 // jshint esversion: 6
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import noteContext from "../context/notes/noteContext";
-
 import "./home.css";
 
 const NoteItem = (props) => {
   const context = useContext(noteContext);
   const { deleteNote } = context;
   const { note, updateNote } = props;
+
   return (
     <div className="noteContainer">
-      <h4 style={{ margin: "6px 0px" }}>{note.title}</h4>
-      <div style={{ margin: "6px 0px", fontSize: "14px" }}>
+      <h4 style={{ margin: "6px 0px", wordWrap: "break-word" }}>
+        {note.title}
+      </h4>
+      <div
+        style={{ margin: "6px 0px", fontSize: "14px", wordWrap: "break-word" }}
+      >
         {
           <div>
-            {note.description.split("\n").map((e) => (
-              <div>{e}</div>
+            {note.description.split("\n").map((element) => (
+              <div key={element}>{element}</div>
             ))}
           </div>
         }
@@ -26,6 +30,7 @@ const NoteItem = (props) => {
           color: "rgb(116, 116, 116)",
           margin: "6px 0px",
           fontSize: "14px",
+          wordWrap: "break-word",
         }}
       >
         #{note.tag}

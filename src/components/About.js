@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from "react";
-import noteContext from "../context/notes/noteContext";
+import React from "react";
 
 export const About = () => {
-  return <div>this is about</div>;
+  return <div className="margin">this is about</div>;
 };

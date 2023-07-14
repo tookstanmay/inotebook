@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import "./navbar.css";
 
-export const Navbar = () => {
+export const Navbar = (props) => {
+  const { showAlert } = props;
   let location = useLocation();
+  let history = useHistory();
 
   const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
   const [menu, setMenuClass] = useState("menu hidden");
@@ -26,6 +28,13 @@ export const Navbar = () => {
       setMenuClass("menu hidden");
     }
     setIsMenuClicked(!isMenuClicked);
+  };
+
+  const handleLogout = async () => {
+    localStorage.removeItem("token");
+    history.push("/login");
+    updateMenu();
+    showAlert("primary", "Successfully logged out!");
   };
   return (
     <>
@@ -74,9 +83,28 @@ export const Navbar = () => {
                 <div className="quickLinks">
                   <Link to="/github">Github</Link>
                 </div>
-                <button className="logout" type="submit">
-                  logout
-                </button>
+                {!localStorage.getItem("token") ? (
+                  <div>
+                    <Link
+                      className="authBtn"
+                      to={"/login"}
+                      onClick={updateMenu}
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      className="authBtn"
+                      to={"/signup"}
+                      onClick={updateMenu}
+                    >
+                      Signup
+                    </Link>
+                  </div>
+                ) : (
+                  <button className="authBtn" onClick={handleLogout}>
+                    Logout
+                  </button>
+                )}
               </div>
             </div>
           </div>

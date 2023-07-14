@@ -14,12 +14,23 @@
   --nine: #b24242;
   --ten: #0aa2c0;
   --eleven: #0b91ac;
+  --twelve: rgb(0, 163, 57);
+  --thirteen: rgb(0, 128, 45);
+  --primary:  #cce5ff;
+  --success: #d1e7dd;
+  --danger: #f8d7da;
+  --warning: #fff3cd;
+  --info:  #d1ecf1;
 }
 body {
   background-color: var(--four);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Poppins';
+}
+
+.margin{
+  margin-top: 80px;
 }
 
 .App{

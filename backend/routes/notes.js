@@ -23,9 +23,9 @@ router.post(
   fetchuser,
   [
     body("title", "Title cannot be empty.").exists(),
-    body("description", "Description must be more than 5 characters.")
-      .exists()
-      .isLength({ min: 5 }),
+    body("description", "Description must be more than 5 characters.").isLength(
+      { min: 3 }
+    ),
   ],
   async (req, res) => {
     try {

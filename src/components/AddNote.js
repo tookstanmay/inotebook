@@ -12,22 +12,25 @@ const AddNote = () => {
   const [text, setText] = useState({
     title: "",
     description: "",
-    tag: "General",
+    tag: "",
   });
+
   const onChange = (event) => {
     setText({ ...text, [event.target.name]: event.target.value });
   };
 
   const handleClick = (event) => {
     event.preventDefault();
-    addNote(text.title, text.description, text.tag);
 
-    document.getElementById("title").value = "";
-    document.getElementById("description").value = "";
-    document.getElementById("tag").value = "";
+    if (text.tag === "") {
+      addNote(text.title, text.description, "General");
+    } else {
+      addNote(text.title, text.description, text.tag);
+    }
+    setText({ title: "", description: "", tag: "" });
   };
   return (
-    <div>
+    <div className="margin">
       <form action="" className="addNoteForm">
         <input
           className="addNoteInput"
@@ -38,6 +41,9 @@ const AddNote = () => {
           onChange={onChange}
           spellCheck="false"
           autoComplete="off"
+          minLength={3}
+          required
+          value={text.title}
         />
         <textarea
           className="addNoteTextarea"
@@ -47,6 +53,9 @@ const AddNote = () => {
           onChange={onChange}
           spellCheck="false"
           autoComplete="off"
+          minLength={3}
+          required
+          value={text.description}
         ></textarea>
         <input
           className="addNoteInput"
@@ -57,8 +66,17 @@ const AddNote = () => {
           onChange={onChange}
           spellCheck="false"
           autoComplete="off"
+          value={text.tag}
         />
-        <button id="add" onClick={handleClick}>
+        <button
+          disabled={
+            text.title.length <= 3 || text.description.length <= 3
+              ? true
+              : false
+          }
+          id="add"
+          onClick={handleClick}
+        >
           +
         </button>
       </form>
