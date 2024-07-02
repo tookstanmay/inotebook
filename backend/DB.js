@@ -1,7 +1,10 @@
 // jshint esversion: 6
 
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env.local') });
+
 const mongoose = require("mongoose");
-const mongooseURI = "mongodb://127.0.0.1:27017/userDB";
+const mongooseURI = process.env.MONGODB_URI;
 
 const connectToMongoDB = async () => {
   try {

@@ -20,6 +20,15 @@ const Signup = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (credentials.password.length < 6) {
+      return showAlert("danger", "Password length must be more than 6 characters!");
+    }
+
+    else if (credentials.password !== credentials.confirmPassword) {
+      return showAlert("danger", "Passwords don't match!");
+    }
+
     const host = "http://localhost:5000";
 
     const url = `${host}/api/auth/createuser`;

@@ -1,6 +1,6 @@
 // jshint esversion: 6
 
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import noteContext from "../context/notes/noteContext";
 import "./home.css";
 
