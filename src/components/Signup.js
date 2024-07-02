@@ -29,7 +29,7 @@ const Signup = (props) => {
       return showAlert("danger", "Passwords don't match!");
     }
 
-    const host = "http://localhost:5000";
+    const host = process.env.FRONTEND_URL;
 
     const url = `${host}/api/auth/createuser`;
     const response = await fetch(url, {
